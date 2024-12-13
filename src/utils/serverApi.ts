@@ -6,7 +6,7 @@
 'use server';
 
 import { Champion } from '@/types/Champion';
-import { ChampionItem } from '@/types/ChampionItem';
+import { ChampionItem } from '@/types/ChampionDetail';
 
 // 클라이언트 컨포넌트에서 서버로 동작이 가능 하게 해준다
 
