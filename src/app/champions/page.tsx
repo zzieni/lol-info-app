@@ -3,7 +3,7 @@
 import { fetchChampionList } from '@/utils/serverApi';
 
 import { ChampionListItem } from '@/types/Champion';
-import ChampionCrad from '@/components/champions/ChampionCrad';
+import ChampionCrad from '@/app/champions/components/ChampionCard';
 async function ChampionPage() {
   const championList = await fetchChampionList();
 
