@@ -1,9 +1,9 @@
 // 챔피언 목록 페이지
 
 import { fetchChampionList } from '@/utils/serverApi';
-
 import { ChampionListItem } from '@/types/Champion';
 import ChampionCrad from '@/app/champions/components/ChampionCard';
+
 async function ChampionPage() {
   const championList = await fetchChampionList();
 

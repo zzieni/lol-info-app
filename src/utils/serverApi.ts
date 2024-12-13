@@ -80,7 +80,7 @@ export const fetchItemList = async () => {
     if (!res) throw new Error(`HTTP error!`);
 
     const data = await res.json();
-    return data;
+    return data.data;
   } catch (error) {
     console.error('Error fetching Items data:', error);
   }

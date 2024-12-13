@@ -13,7 +13,7 @@ async function ChampionDetail({ params }: { params: { id: string } }) {
         <div className='relative h-64 md:h-96'>
           <Image
             src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_0.jpg`}
-            layout='fill'
+            fill
             objectFit='cover'
             alt={`${name} splash art`}
             className='opacity-50'
