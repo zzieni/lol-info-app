@@ -30,7 +30,6 @@ export const fetchLatestVersion = async (): Promise<string | undefined> => {
 export const fetchChampionList = async (): Promise<Champion | undefined> => {
   try {
     const version = await fetchLatestVersion();
-    console.log(version);
 
     const res = await fetch(
       `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`
