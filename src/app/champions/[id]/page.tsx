@@ -1,3 +1,8 @@
+/** 챔피온 상세 페이지
+ * 서버 컴포넌트
+ * params 타입 정의
+ */
+
 import { fetchChampionDetail } from '@/utils/serverApi';
 import Image from 'next/image';
 

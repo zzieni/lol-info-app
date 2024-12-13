@@ -7,7 +7,7 @@ async function ItemDetailPage({ item }: { item: ItemData }) {
   const { full } = item.image;
 
   return (
-    <div className='bg-gray-800 text-white rounded-lg shadow-xl overflow-hidden w-full'>
+    <div className='bg-gray-500 text-white rounded-lg shadow-xl overflow-hidden w-full'>
       <div className='p-4 flex flex-col items-center gap-4'>
         <div className='w-24 h-24 relative'>
           <Image

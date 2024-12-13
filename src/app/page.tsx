@@ -1,3 +1,6 @@
+/** 메인페이지
+ * SSG
+ */
 import Link from 'next/link';
 
 export default function Home() {

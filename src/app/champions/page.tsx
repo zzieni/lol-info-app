@@ -1,4 +1,8 @@
-// 챔피언 목록 페이지
+/** 챔피언 목록 페이지
+ * ISR - 자주 변경되지 않으므로 ISR을 사용하여 성능을 최적화
+ * 재검증 시간(revalidate): 하루(86400초)
+ * <Image> 컴포넌트를 사용
+ */
 
 import { fetchChampionList } from '@/utils/serverApi';
 import { ChampionListItem } from '@/types/Champion';

@@ -1,4 +1,8 @@
-// 아이템 목록 페이지
+/** 아이템 목록 페이지
+ * SSG
+ * <Image> 컴포넌트를 사용
+ * 그리드 레이아웃을 사용하여 아이템들을 정렬하고 UI를 개선
+ */
 
 import { fetchItemList } from '@/utils/serverApi';
 import { ItemData, ItemDatas } from '@/types/Item';
