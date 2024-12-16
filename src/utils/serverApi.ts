@@ -18,7 +18,7 @@ export const fetchLatestVersion = async (): Promise<string | undefined> => {
       'https://ddragon.leagueoflegends.com/api/versions.json'
     );
 
-    if (!res) throw new Error(`HTTP error!`);
+    if (!res.ok) throw new Error(`HTTP error!`);
 
     const versions = await res.json();
     // console.log('fetchLatestVersion TYPE ==>', typeof versions[0]);
@@ -37,7 +37,7 @@ export const fetchChampionList = async (): Promise<Champion | undefined> => {
       `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`
     );
 
-    if (!res) throw new Error(`HTTP error!`);
+    if (!res.ok) throw new Error(`HTTP error!`);
 
     const data = await res.json();
 
@@ -50,7 +50,7 @@ export const fetchChampionList = async (): Promise<Champion | undefined> => {
 
 // 최신 버전 챔피언 상세 데이터
 export const fetchChampionDetail = async (
-  id: string
+  id: string | null
 ): Promise<ChampionItem[] | undefined> => {
   const version = await fetchLatestVersion();
 
@@ -59,7 +59,7 @@ export const fetchChampionDetail = async (
       `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion/${id}.json`
     );
 
-    if (!res) throw new Error(`HTTP error! `);
+    if (!res.ok) throw new Error(`HTTP error! `);
 
     const data = await res.json();
 
@@ -79,7 +79,7 @@ export const fetchItemList = async () => {
       `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/item.json`
     );
 
-    if (!res) throw new Error(`HTTP error!`);
+    if (!res.ok) throw new Error(`HTTP error!`);
 
     const data = await res.json();
     return data.data;
