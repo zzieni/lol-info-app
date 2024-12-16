@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 function RotationList({ item }: { item: ChampionListItem }) {
-  //   const version = await fetchLatestVersion();
+  const version = item.version;
   const { full } = item.image;
   return (
     <Link href={`/champions/${item.id}`}>
@@ -12,7 +12,7 @@ function RotationList({ item }: { item: ChampionListItem }) {
         <div className='p-4 flex flex-col items-center gap-4'>
           <div className='p-4 hover:bg-gray-50 transition duration-150 ease-in-out'>
             <Image
-              src={`https://ddragon.leagueoflegends.com/cdn/14.24.1/img/champion/${full}`}
+              src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${full}`}
               alt={`${item.name} image`}
               width={96}
               height={96}

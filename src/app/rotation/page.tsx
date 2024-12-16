@@ -27,7 +27,7 @@ function RotationPage() {
         }
         const data = await response.json();
         setChampions(data);
-      } catch (err) {
+      } catch (err: any) {
         setError(err.message);
       } finally {
         setIsLoading(false);

@@ -10,7 +10,7 @@ async function ChampionDetail({ params }: { params: { id: string } }) {
   const { id } = params;
   const championDetailData = await fetchChampionDetail(id);
 
-  const { name, title, image, lore, info } = championDetailData.data[id];
+  const { name, title, lore, info } = championDetailData.data[id];
 
   return (
     <div className='container mx-auto px-20 py-24 w-[800px] '>
