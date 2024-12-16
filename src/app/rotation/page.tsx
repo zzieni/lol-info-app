@@ -7,34 +7,63 @@
 
 'use client';
 
-import { useEffect, useState } from 'react';
 import RotationList from './components/RotationList';
 import { ChampionListItem } from '@/types/Champion';
+import { useQuery } from '@tanstack/react-query';
+// import Error from 'next/error';
 
 function RotationPage() {
   const config = { headers: { Accept: 'application/json' } };
 
-  const [champions, setChampions] = useState<ChampionListItem>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<null>(null);
+  // const [champions, setChampions] = useState<ChampionListItem>([]);
+  // const [isLoading, setIsLoading] = useState<boolean>(true);
+  // const [error, setError] = useState<null>(null);
 
-  useEffect(() => {
-    const fetchRotationData = async () => {
-      try {
-        const response = await fetch('/api/rotation', config);
-        if (!response.ok) {
-          throw new Error('서버에서 데이터를 가져오는데 실패했습니다.');
-        }
-        const data = await response.json();
-        setChampions(data);
-      } catch (err: any) {
-        setError(err.message);
-      } finally {
-        setIsLoading(false);
+  // useEffect(() => {
+  //   const fetchRotationData = async () => {
+  //     try {
+  //       const response = await fetch('/api/rotation', config);
+  //       if (!response.ok) {
+  //         throw new Error('서버에서 데이터를 가져오는데 실패했습니다.');
+  //       }
+  //       const data = await response.json();
+  //       setChampions(data);
+  //     } catch (err: any) {
+  //       setError(err.message);
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
+  //   fetchRotationData();
+  // }, []);
+
+  const fetchRotationData = async () => {
+    try {
+      const response = await fetch('/api/rotation', config);
+
+      console.log(response);
+      if (!response.ok) {
+        throw new Error('서버에서 데이터를 가져오는데 실패했습니다.');
       }
-    };
-    fetchRotationData();
-  }, []);
+
+      const data = await response.json();
+      return data;
+    } catch (err) {
+      // any 쓰면 혼남 !!! 이놈~~~ ^^^
+      if (err instanceof Error) {
+        console.log(err.message);
+      }
+    }
+  };
+
+  const { data, error, isPending } = useQuery<ChampionListItem[], Error>({
+    queryKey: ['data'],
+    queryFn: fetchRotationData,
+  });
+
+  console.log(error);
+  if (isPending) return <div>로딩중 입니다....</div>;
+  if (error) return <div>error</div>;
 
   return (
     <div className='container mx-auto px-4 py-8'>
@@ -43,9 +72,13 @@ function RotationPage() {
       </h1>
       <div className='container mx-auto px-4 py-8'>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
-          {champions.map((item) => (
-            <RotationList key={item.key} item={item} />
-          ))}
+          {data.map(
+            (
+              item // ?: 있으면, !: 타입 -> not-undefind, not-null(타입단언)
+            ) => (
+              <RotationList key={item.key} item={item} />
+            )
+          )}
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 import Link from 'next/link';
+import Providers from './providers';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -30,36 +31,39 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-100`}
         suppressHydrationWarning={true}
       >
-        <nav className='bg-blue-600 text-white shadow-md'>
-          <div className='container mx-auto px-4'>
-            <div className='flex justify-between items-center py-4'>
-              <Link href={'/'} className='text-2xl font-bold'>
-                LoL Info
-              </Link>
-              <div className='space-x-4'>
-                <Link
-                  href={'/champions'}
-                  className='hover:text-blue-200 transition-colors'
-                >
-                  챔피언 목록
+        <Providers>
+          {children}
+          <nav className='bg-blue-600 text-white shadow-md'>
+            <div className='container mx-auto px-4'>
+              <div className='flex justify-between items-center py-4'>
+                <Link href={'/'} className='text-2xl font-bold'>
+                  LoL Info
                 </Link>
-                <Link
-                  href={'/items'}
-                  className='hover:text-blue-200 transition-colors'
-                >
-                  아이템 목록
-                </Link>
-                <Link
-                  href={'/rotation'}
-                  className='hover:text-blue-200 transition-colors'
-                >
-                  챔피언 로테이션
-                </Link>
+                <div className='space-x-4'>
+                  <Link
+                    href={'/champions'}
+                    className='hover:text-blue-200 transition-colors'
+                  >
+                    챔피언 목록
+                  </Link>
+                  <Link
+                    href={'/items'}
+                    className='hover:text-blue-200 transition-colors'
+                  >
+                    아이템 목록
+                  </Link>
+                  <Link
+                    href={'/rotation'}
+                    className='hover:text-blue-200 transition-colors'
+                  >
+                    챔피언 로테이션
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        </nav>
-        <main className='container mx-auto px-4 py-8'>{children}</main>
+          </nav>
+          <main className='container mx-auto px-4 py-8'>{children}</main>
+        </Providers>
       </body>
     </html>
   );
