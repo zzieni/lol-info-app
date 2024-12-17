@@ -15,7 +15,7 @@ export async function GET() {
       throw new Error('Champion 데이터를 불러러오지 못했습니다.');
     }
 
-    const newRotationData = Object.values(rotationData.freeChampionIds); //28
+    const newRotationData = Object.values(rotationData.freeChampionIds);
     const newChampionData = Object.values(championData.data);
 
     const data = newChampionData.filter((champion) => {

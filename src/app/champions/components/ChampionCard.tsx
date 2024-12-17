@@ -6,6 +6,7 @@ import Link from 'next/link';
 async function ChampionCard({ champion }: { champion: ChampionListItem }) {
   const version = await fetchLatestVersion();
   const { full } = champion.image;
+
   return (
     <Link href={`/champions/${champion.id}`}>
       <div className='bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-100 w-48'>

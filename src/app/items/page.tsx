@@ -20,7 +20,7 @@ async function ItemPage() {
       </h1>
       <div className='container mx-auto px-4 py-8'>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
-          {items.map((item: ItemData) => (
+          {items.map((item) => (
             <ItemDetailPage key={item.name} item={item} />
           ))}
         </div>

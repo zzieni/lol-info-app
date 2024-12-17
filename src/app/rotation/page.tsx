@@ -61,7 +61,6 @@ function RotationPage() {
     queryFn: fetchRotationData,
   });
 
-  console.log(error);
   if (isPending) return <div>로딩중 입니다....</div>;
   if (error) return <div>error</div>;
 
