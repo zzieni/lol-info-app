@@ -2,8 +2,13 @@ import { ItemData } from '@/types/Item';
 import { fetchLatestVersion } from '@/utils/serverApi';
 import Image from 'next/image';
 
-async function ItemDetailPage({ item }: { item: ItemData }) {
-  const version = await fetchLatestVersion();
+async function ItemDetailPage({
+  item,
+  version,
+}: {
+  item: ItemData;
+  version: string;
+}) {
   const { full } = item.image;
 
   return (

@@ -9,13 +9,15 @@ import { ItemData, ItemDatas } from '@/types/Item';
 import ItemDetailPage from './components/ItemDetailPage';
 
 async function ItemPage() {
-  const itemList = await fetchItemList();
+  const itemData = await fetchItemList();
 
-  // if (itemList === undefined) {
-  //   throw new Error('불러올 데이터가 없습니다');
-  // }
+  if (itemData === undefined) {
+    throw new Error('불러올 데이터가 없습니다');
+  }
 
-  const items = Object.values(itemList.data);
+  const items = Object.values(itemData.data);
+
+  const version = itemData?.version;
 
   return (
     <div>
@@ -25,7 +27,7 @@ async function ItemPage() {
       <div className='container mx-auto px-4 py-8'>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
           {items.map((item) => (
-            <ItemDetailPage key={item.name} item={item} />
+            <ItemDetailPage key={item.name} item={item} version={version} />
           ))}
         </div>
       </div>

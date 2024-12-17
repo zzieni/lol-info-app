@@ -21,7 +21,7 @@ export const fetchLatestVersion = async (): Promise<string | undefined> => {
     if (!res.ok) throw new Error(`HTTP error!`);
 
     const versions = await res.json();
-    // console.log('fetchLatestVersion TYPE ==>', typeof versions[0]);
+
     return versions[0];
   } catch (error) {
     console.error('Error fetching Latest Version data:', error);
@@ -42,7 +42,6 @@ export const fetchChampionList = async (): Promise<Champion | undefined> => {
 
     const data = await res.json();
 
-    // console.log('fetchChampionList TYPE ==> ', data);
     return data;
   } catch (error) {
     console.error('Error fetching Champion data:', error);
@@ -84,7 +83,7 @@ export const fetchItemList = async (): Promise<Item | undefined> => {
 
     const data = await res.json();
 
-    return data.data;
+    return data;
   } catch (error) {
     console.error('Error fetching Items data:', error);
   }
