@@ -10,32 +10,9 @@
 import RotationList from './components/RotationList';
 import { ChampionListItem } from '@/types/Champion';
 import { useQuery } from '@tanstack/react-query';
-// import Error from 'next/error';
 
 function RotationPage() {
   const config = { headers: { Accept: 'application/json' } };
-
-  // const [champions, setChampions] = useState<ChampionListItem>([]);
-  // const [isLoading, setIsLoading] = useState<boolean>(true);
-  // const [error, setError] = useState<null>(null);
-
-  // useEffect(() => {
-  //   const fetchRotationData = async () => {
-  //     try {
-  //       const response = await fetch('/api/rotation', config);
-  //       if (!response.ok) {
-  //         throw new Error('서버에서 데이터를 가져오는데 실패했습니다.');
-  //       }
-  //       const data = await response.json();
-  //       setChampions(data);
-  //     } catch (err: any) {
-  //       setError(err.message);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   };
-  //   fetchRotationData();
-  // }, []);
 
   const fetchRotationData = async () => {
     try {

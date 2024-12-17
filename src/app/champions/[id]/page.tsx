@@ -10,7 +10,11 @@ async function ChampionDetail({ params }: { params: { id: string } }) {
   const { id } = params;
   const championDetailData = await fetchChampionDetail(id);
 
-  const { name, title, lore, info } = championDetailData.data[id];
+  console.log(championDetailData);
+  if (championDetailData === undefined) {
+    throw new Error('불러올 데이터가 없습니다');
+  }
+  const { name, title, lore, info } = championDetailData[id];
 
   return (
     <div className='container mx-auto px-20 py-24 w-[800px] '>

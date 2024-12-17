@@ -9,10 +9,14 @@ import { ItemData, ItemDatas } from '@/types/Item';
 import ItemDetailPage from './components/ItemDetailPage';
 
 async function ItemPage() {
-  // console.log('fetchItemList', await fetchItemList());
-  const data = await fetchItemList();
+  const itemList = await fetchItemList();
 
-  const items = Object.values(data).map((item) => item);
+  // if (itemList === undefined) {
+  //   throw new Error('불러올 데이터가 없습니다');
+  // }
+
+  const items = Object.values(itemList.data);
+
   return (
     <div>
       <h1 className='text-3xl font-bold mb-6 text-center text-blue-600'>

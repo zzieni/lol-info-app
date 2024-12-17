@@ -24,6 +24,7 @@ export type ChampionListItem = {
   tags: ChampionTages;
   partype: string;
   stats: ChampionStats;
+  lore: string;
 };
 
 export type ChampionInfo = {

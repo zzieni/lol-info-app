@@ -7,8 +7,7 @@
 // 최신 버전 정보 데이터 (14.24.1)
 'use server';
 
-import { Champion } from '@/types/Champion';
-import { ChampionItem } from '@/types/ChampionDetail';
+import { Champion, ChampionList } from '@/types/Champion';
 import { Item } from '@/types/Item';
 
 // 클라이언트 컨포넌트에서 서버로 동작이 가능 하게 해준다
@@ -53,7 +52,7 @@ export const fetchChampionList = async (): Promise<Champion | undefined> => {
 // 최신 버전 챔피언 상세 데이터
 export const fetchChampionDetail = async (
   id: string | null
-): Promise<ChampionItem[] | undefined> => {
+): Promise<ChampionList | undefined> => {
   const version = await fetchLatestVersion();
 
   try {
@@ -66,15 +65,14 @@ export const fetchChampionDetail = async (
 
     const data = await res.json();
 
-    // console.log('fetchChampionDetail TYPE == ', data);
-    return data;
+    return data.data;
   } catch (error) {
     console.error('Error fetching Champion Detail data:', error);
   }
 };
 
 // 최신 버전 정보의 아이템 목록 데이터
-export const fetchItemList = async (): Promise<Item[] | undefined> => {
+export const fetchItemList = async (): Promise<Item | undefined> => {
   try {
     const version = await fetchLatestVersion();
 
@@ -85,6 +83,7 @@ export const fetchItemList = async (): Promise<Item[] | undefined> => {
     if (!res.ok) throw new Error(`HTTP error!`);
 
     const data = await res.json();
+
     return data.data;
   } catch (error) {
     console.error('Error fetching Items data:', error);

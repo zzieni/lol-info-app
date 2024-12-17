@@ -7,14 +7,16 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   try {
     const rotationData = await getChampionRotation();
-    if (!rotationData)
+
+    if (!rotationData) {
       throw new Error('Champion Rotation 데이터를 불러러오지 못했습니다.');
+    }
 
     const championData = await fetchChampionList();
+
     if (championData === undefined) {
       throw new Error('Champion 데이터를 불러러오지 못했습니다.');
     }
-
     const newRotationData = Object.values(rotationData.freeChampionIds);
     const newChampionData = Object.values(championData.data);
 

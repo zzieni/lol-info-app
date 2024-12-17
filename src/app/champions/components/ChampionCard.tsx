@@ -1,10 +1,9 @@
 import { ChampionListItem } from '@/types/Champion';
-import { fetchLatestVersion } from '@/utils/serverApi';
 import Image from 'next/image';
 import Link from 'next/link';
 
 async function ChampionCard({ champion }: { champion: ChampionListItem }) {
-  const version = await fetchLatestVersion();
+  const { version } = champion;
   const { full } = champion.image;
 
   return (
