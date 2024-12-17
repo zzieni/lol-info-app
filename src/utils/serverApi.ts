@@ -9,6 +9,7 @@
 
 import { Champion } from '@/types/Champion';
 import { ChampionItem } from '@/types/ChampionDetail';
+import { Item } from '@/types/Item';
 
 // 클라이언트 컨포넌트에서 서버로 동작이 가능 하게 해준다
 
@@ -34,7 +35,8 @@ export const fetchChampionList = async (): Promise<Champion | undefined> => {
     const version = await fetchLatestVersion();
 
     const res = await fetch(
-      `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`
+      `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion.json`,
+      { next: { revalidate: 86400 } }
     );
 
     if (!res.ok) throw new Error(`HTTP error!`);
@@ -56,7 +58,8 @@ export const fetchChampionDetail = async (
 
   try {
     const res = await fetch(
-      `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion/${id}.json`
+      `https://ddragon.leagueoflegends.com/cdn/${version}/data/ko_KR/champion/${id}.json`,
+      { cache: 'no-store' }
     );
 
     if (!res.ok) throw new Error(`HTTP error! `);
@@ -71,7 +74,7 @@ export const fetchChampionDetail = async (
 };
 
 // 최신 버전 정보의 아이템 목록 데이터
-export const fetchItemList = async () => {
+export const fetchItemList = async (): Promise<Item[] | undefined> => {
   try {
     const version = await fetchLatestVersion();
 
