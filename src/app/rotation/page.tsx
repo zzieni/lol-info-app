@@ -18,7 +18,7 @@ function RotationPage() {
     try {
       const response = await fetch('/api/rotation', config);
 
-      console.log(response);
+      console.error(response);
       if (!response.ok) {
         throw new Error('서버에서 데이터를 가져오는데 실패했습니다.');
       }
@@ -28,7 +28,7 @@ function RotationPage() {
     } catch (err) {
       // any 쓰면 혼남 !!! 이놈~~~ ^^^
       if (err instanceof Error) {
-        console.log(err.message);
+        console.error(err.message);
       }
     }
   };
