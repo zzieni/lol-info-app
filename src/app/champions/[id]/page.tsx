@@ -10,7 +10,6 @@ async function ChampionDetail({ params }: { params: { id: string } }) {
   const { id } = params;
   const championDetailData = await fetchChampionDetail(id);
 
-  console.log(championDetailData);
   if (championDetailData === undefined) {
     throw new Error('불러올 데이터가 없습니다');
   }
@@ -19,11 +18,11 @@ async function ChampionDetail({ params }: { params: { id: string } }) {
   return (
     <div className='container mx-auto px-20 py-24 w-[800px] '>
       <div className='bg-gray-800 text-white rounded-lg shadow-xl overflow-hidden'>
-        <div className='relative h-64 md:h-96'>
+        <div className='relative h-68 md:h-96'>
           <Image
             src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_0.jpg`}
-            fill
-            objectFit='cover'
+            width={500}
+            height={500}
             alt={`${name} splash art`}
             className='opacity-50'
           />

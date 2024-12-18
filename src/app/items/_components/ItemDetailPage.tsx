@@ -16,8 +16,8 @@ async function ItemDetailPage({
         <div className='w-24 h-24 relative'>
           <Image
             src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/item/${full}`}
-            fill
-            objectFit='contain'
+            width={500}
+            height={500}
             alt={`${item.name} image`}
             className='rounded-lg'
           />
