@@ -5,7 +5,7 @@
  */
 
 import { fetchChampionList } from '@/utils/serverApi';
-import ChampionCrad from '@/app/champions/components/ChampionCard';
+import ChampionCrad from '@/app/champions/_components/ChampionCard';
 import { Suspense } from 'react';
 
 async function ChampionPage() {
