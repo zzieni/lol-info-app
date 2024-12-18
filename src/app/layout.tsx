@@ -4,7 +4,7 @@ import './globals.css';
 import Link from 'next/link';
 import Providers from './providers';
 import { ThemeProvider } from './themeProvider';
-import ThemeToggle from './components/ThemeToggle';
+import ThemeToggle from './_components/ThemeToggle';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',

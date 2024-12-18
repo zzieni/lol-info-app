@@ -5,7 +5,7 @@
  */
 
 import { fetchItemList } from '@/utils/serverApi';
-import ItemDetailPage from './components/ItemDetailPage';
+import ItemDetailPage from './_components/ItemDetailPage';
 import { Suspense } from 'react';
 
 async function ItemPage() {

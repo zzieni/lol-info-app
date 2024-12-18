@@ -7,7 +7,7 @@
 
 'use client';
 
-import RotationList from './components/RotationList';
+import RotationList from './_components/RotationList';
 import { ChampionListItem } from '@/types/Champion';
 import { useQuery } from '@tanstack/react-query';
 
