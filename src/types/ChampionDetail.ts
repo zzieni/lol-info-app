@@ -15,17 +15,13 @@ export type ChampionItemDetail = {
   name: string;
   title: string;
   image: ChampionItemDetailImage;
-  skins: Array<{}>;
   lore: string;
   blurb: string;
   allytips: string[];
   enemytips: string[];
   tags: string[];
   partype: string;
-  info: {};
-  stats: {};
   spells: [];
-  passive: {};
   recommended: [];
 };
 

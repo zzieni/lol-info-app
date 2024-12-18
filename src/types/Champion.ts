@@ -12,7 +12,6 @@ export type ChampionList = {
 };
 
 export type ChampionListItem = {
-  // 동적 타입 (어떤 값이 얼마나 들어올지 몰라서 )
   version: string;
   id: string;
   key: string;

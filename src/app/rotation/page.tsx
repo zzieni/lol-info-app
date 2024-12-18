@@ -18,12 +18,12 @@ function RotationPage() {
     try {
       const response = await fetch('/api/rotation', config);
 
-      console.error(response);
       if (!response.ok) {
         throw new Error('서버에서 데이터를 가져오는데 실패했습니다.');
       }
 
       const data = await response.json();
+
       return data;
     } catch (err) {
       // any 쓰면 혼남 !!! 이놈~~~ ^^^
@@ -48,13 +48,9 @@ function RotationPage() {
       </h1>
       <div className='container mx-auto px-4 py-8'>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
-          {data.map(
-            (
-              item // ?: 있으면, !: 타입 -> not-undefind, not-null(타입단언)
-            ) => (
-              <RotationList key={item.key} item={item} />
-            )
-          )}
+          {data.map((item) => (
+            <RotationList key={item.key} item={item} />
+          ))}
         </div>
       </div>
     </div>

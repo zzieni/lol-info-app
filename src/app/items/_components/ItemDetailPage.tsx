@@ -1,5 +1,4 @@
 import { ItemData } from '@/types/Item';
-import { fetchLatestVersion } from '@/utils/serverApi';
 import Image from 'next/image';
 
 async function ItemDetailPage({

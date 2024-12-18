@@ -3,14 +3,10 @@
 export type Item = {
   type: string;
   version: string;
-  basic: ItemBasics;
   data: ItemDatas;
   groups: ItemGroups;
   tree: ItemTrees;
 };
-
-// basic
-export type ItemBasics = {};
 
 // data
 export type ItemDatas = {

@@ -25,8 +25,10 @@ export async function GET() {
     });
 
     return NextResponse.json(data);
-  } catch (error: any) {
-    console.error(error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+      return NextResponse.json({ error: error.message }, { status: 500 });
+    }
   }
 }
