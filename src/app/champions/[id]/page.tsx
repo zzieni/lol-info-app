@@ -18,11 +18,11 @@ async function ChampionDetail({ params }: { params: { id: string } }) {
   return (
     <div className='container mx-auto px-20 py-24 w-[800px] '>
       <div className='bg-gray-800 text-white rounded-lg shadow-xl overflow-hidden'>
-        <div className='relative h-68 md:h-96'>
+        <div className='relative h-64 md:h-96'>
           <Image
             src={`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_0.jpg`}
-            width={500}
-            height={500}
+            fill
+            priority={true}
             alt={`${name} splash art`}
             className='opacity-50'
           />
