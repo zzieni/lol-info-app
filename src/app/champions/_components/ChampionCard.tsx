@@ -7,7 +7,7 @@ async function ChampionCard({ champion }: { champion: ChampionListItem }) {
   const { full } = champion.image;
 
   return (
-    <Link href={`/champions/${champion.id}`}>
+    <Link href={`/champions/${champion.id}`} prefetch={false}>
       <div className='bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-100 w-48'>
         <div className='relative h-30'>
           <Image
