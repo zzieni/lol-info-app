@@ -5,8 +5,8 @@
  */
 
 import { fetchChampionList } from '@/utils/serverApi';
-import { ChampionListItem } from '@/types/Champion';
 import ChampionCrad from '@/app/champions/components/ChampionCard';
+import { Suspense } from 'react';
 
 async function ChampionPage() {
   const championList = await fetchChampionList();
@@ -22,11 +22,13 @@ async function ChampionPage() {
       <h1 className='text-3xl font-bold mb-6 text-center text-blue-600'>
         챔피언 목록
       </h1>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-        {championData.map((champion) => (
-          <ChampionCrad key={champion.id} champion={champion} />
-        ))}
-      </div>
+      <Suspense fallback={<p>Loading Champion Page...</p>}>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+          {championData.map((champion) => (
+            <ChampionCrad key={champion.id} champion={champion} />
+          ))}
+        </div>
+      </Suspense>
     </div>
   );
 }

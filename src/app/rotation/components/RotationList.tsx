@@ -18,6 +18,7 @@ function RotationList({ item }: { item: ChampionListItem }) {
               height={96}
               sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
               className='object-contain'
+              priority
             />
             <h2 className='text-xl font-semibold text-gray-800'>{item.id}</h2>
             <p className='text-gray-600 mt-1'>{item.title}</p>
